@@ -38,12 +38,12 @@ namespace MVC2.Controllers
             CreatePersonViewModel createPersonViewModel = new CreatePersonViewModel();
             createPersonViewModel.Name = peopleViewModel.Name;
             createPersonViewModel.City = peopleViewModel.City;
-            createPersonViewModel.Phone = 2;
-            //createPersonViewModel.Phone = peopleViewModel.Phone;
-            PropertyInfo pi = createPersonViewModel.GetType().GetProperty("Phone");
-            int current = System.Convert.ToInt32(pi.GetValue(createPersonViewModel));
-            current++;
-            pi.SetValue(createPersonViewModel, current);
+            createPersonViewModel.Phone = peopleViewModel.Phone;
+            //createPersonViewModel.Phone = 2;            
+            //PropertyInfo pi = createPersonViewModel.GetType().GetProperty("Phone");
+            //int current = System.Convert.ToInt32(pi.GetValue(createPersonViewModel));
+            //current++;
+            //pi.SetValue(createPersonViewModel, current);
             //createPersonViewModel.GetType().GetProperty("Phone").SetValue(createPersonViewModel, createPersonViewModel);
             //createPersonViewModel.Phone = (createPersonViewModel.GetType().GetProperty("Phone").
             _peopleService.Add(createPersonViewModel);

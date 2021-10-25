@@ -1,0 +1,10 @@
+﻿
+@model List<Person>
+
+
+<div class="col">
+    @foreach (var p in Model)
+    {
+        <partial name="_personPartial" model="p" />
+    }
+</div>
