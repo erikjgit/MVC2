@@ -13,17 +13,13 @@ namespace MVC2.Controllers
     public class PeopleController : Controller
     {
 
-        //IPeopleRepo _peopleRepo;
-        IPeopleRepo _inMemoryPeopleRepo;
         IPeopleService _peopleService;
-        //private readonly ILogger<HomeController> _logger;
 
-        public PeopleController(/*ILogger<HomeController> logger,*/ IPeopleService peopleService, /*IPeopleRepo peopleRepo,*/ IPeopleRepo inMemoryPeopleRepo)
+        public PeopleController( IPeopleService peopleService)
         {
-            //_peopleRepo = peopleRepo;
-            _inMemoryPeopleRepo = inMemoryPeopleRepo;
+            
+            
             _peopleService = peopleService;
-            //_logger = logger;
         }
         [HttpGet]
         public IActionResult Index()
@@ -43,18 +39,6 @@ namespace MVC2.Controllers
             return RedirectToAction("Index", peopleViewModel);
         }
 
-        //[HttpPost] 
-        //IActionResult Index(string )
 
-        //public IActionResult Privacy()
-        //{
-        //    return View();
-        //}
-
-        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        //public IActionResult Error()
-        //{
-        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        //}
     }
 }

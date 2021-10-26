@@ -21,11 +21,11 @@ function Delete() {
         }
         , function (data, status) {
             
-            //if (data.status==404) {
-            //    $("#ajaxresult").html("Person not found");
-            //}
-            //else {
-            //    $("#ajaxresult").html("Person deleted");
-            //}
+            if (data.status==404) {
+                $("#ajaxresult").html("Person not found");
+            }
+            else {
+                $("#ajaxresult").html("Person deleted");
+            }
         });
 }

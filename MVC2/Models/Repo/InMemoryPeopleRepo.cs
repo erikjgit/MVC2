@@ -16,7 +16,7 @@ namespace MVC2.Models.Repo
             p.Name = name;
             p.City = city;
             p.Phone = phone;
-            p.id = idCounter++;
+            p.Id = idCounter++;
             _peopleList.Add(p);
             return (p);
 
@@ -36,7 +36,7 @@ namespace MVC2.Models.Repo
         {
             foreach(Person p in _peopleList)
             {
-                if (p.id == id)
+                if (p.Id == id)
                 {
                     return (p);
                 }

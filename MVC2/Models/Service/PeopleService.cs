@@ -9,7 +9,11 @@ namespace MVC2.Models.Service
 {
     public class PeopleService : IPeopleService
     {
-        IPeopleRepo people = new InMemoryPeopleRepo();
+        IPeopleRepo people;
+        public PeopleService(IPeopleRepo peopleRepo)
+        {
+            people = peopleRepo;
+        }
         public Person Add(CreatePersonViewModel person)
         {
             return(people.Create(person.Name, person.City, person.Phone));

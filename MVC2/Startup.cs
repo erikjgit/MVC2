@@ -6,10 +6,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MVC2.Models.Repo;
 using MVC2.Models.Service;
+using MVC2.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace MVC2
 {
@@ -29,6 +31,8 @@ namespace MVC2
             services.AddControllersWithViews();
             services.AddScoped<IPeopleRepo, InMemoryPeopleRepo >();
             services.AddScoped<IPeopleService, PeopleService>();
+            services.AddDbContext<PeopleDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("PeopleDb")));
 
         }
 
