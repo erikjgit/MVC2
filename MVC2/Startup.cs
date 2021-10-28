@@ -29,7 +29,7 @@ namespace MVC2
         {
             services.AddRazorPages();
             services.AddControllersWithViews();
-            services.AddScoped<IPeopleRepo, InMemoryPeopleRepo >();
+            services.AddScoped<IPeopleRepo, DatabasePeopleRepo >();
             services.AddScoped<IPeopleService, PeopleService>();
             services.AddDbContext<PeopleDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("PeopleDb")));

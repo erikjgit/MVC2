@@ -18,6 +18,6 @@ namespace MVC2.Database
         {
 
         }
-        public DbSet<Person> people;
+        public DbSet<Person> People { get; set;}
     }
 }

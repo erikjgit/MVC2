@@ -8,8 +8,11 @@ namespace MVC2.Models
 {
     public class Person
     {
-        public string Name { get; set; }        
+        [Required]
+        public string Name { get; set; }
+        [Required]
         public string City { get; set; }
+        [Required]
         public int Phone { get; set; }
         [Key]
         public int Id { get; set; }
