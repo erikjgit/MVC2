@@ -45,9 +45,11 @@ namespace MVC2.Models.Service
                 {
                     result.PersonList.Add(p);
                 }
-                else if (p.City.Name.Equals(search.FilterText))
-                {
-                    result.PersonList.Add(p);
+                else if (p.City != null) {
+                    if (p.City.Name.Equals(search.FilterText))
+                    {
+                        result.PersonList.Add(p);
+                    }
                 }
             }
             return result;

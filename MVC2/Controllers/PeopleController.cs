@@ -29,7 +29,7 @@ namespace MVC2.Controllers
             return View(vm);
         }
         [HttpPost]
-        public IActionResult Filter(PeopleViewModel vm)
+        public IActionResult Index(PeopleViewModel vm)
         {
             vm = _peopleService.FindBy(vm);
             return View(vm);

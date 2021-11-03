@@ -3,3 +3,29 @@
 *@
 @{
 }
+
+@model MVC2.Models.ViewModel.CountryViewModel
+
+<form asp-action="Create">
+    <label asp-for="Name">Name</label>
+    <input asp-for="Name" />
+    <button type="submit">Create new country</button>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Id</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Countries)
+        {
+            <tr>
+                <partial name="_countryPartial" model="item" />
+            </tr>
+
+        }
+    </tbody>
+</table>

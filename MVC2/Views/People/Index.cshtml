@@ -19,9 +19,12 @@
     <button type="submit">Create new person</button>
 </form>
 
-<form asp-action="Filter">
+<form asp-action="Index" method="post">
     <input asp-for="FilterText" />
     <button type="submit">Search</button>
+</form>
+<form asp-action="Index" method="get">
+    <button type="submit">Reset</button>
 </form>
 
 <table class="table">
