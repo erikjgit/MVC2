@@ -5,15 +5,10 @@ using System.Threading.Tasks;
 
 namespace MVC2.Models.ViewModel
 {
-    public class CreatePersonViewModel
+    public class CountryViewModel
     {
+        public List<Country> Countries { get; set; }
         public string Name { get; set; }
-        public City City { get; set; }
-        public int Phone { get; set; }
-
-        public CreatePersonViewModel()
-        {
-
-        }
+        public List<City> Cities { get; set; }
     }
 }

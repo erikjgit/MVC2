@@ -29,6 +29,12 @@ namespace MVC2.Controllers
             return View(vm);
         }
         [HttpPost]
+        public IActionResult Filter(PeopleViewModel vm)
+        {
+            vm = _peopleService.FindBy(vm);
+            return View(vm);
+        }
+        [HttpPost]
         public IActionResult Create(PeopleViewModel peopleViewModel)
         {
             CreatePersonViewModel createPersonViewModel = new CreatePersonViewModel();

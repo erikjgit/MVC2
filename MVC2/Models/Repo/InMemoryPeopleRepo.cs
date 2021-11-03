@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MVC2.Models.Repo
 {
-    public class InMemoryPeopleRepo : IPeopleRepo
+    public class InMemoryPeopleRepo //: IPeopleRepo
     {
         public static List<Person> _peopleList = new List<Person>();
         public static int idCounter= 0;
@@ -14,7 +14,7 @@ namespace MVC2.Models.Repo
         {
             Person p = new Person();
             p.Name = name;
-            p.City = city;
+            //p.City = city;
             p.Phone = phone;
             p.Id = idCounter++;
             _peopleList.Add(p);

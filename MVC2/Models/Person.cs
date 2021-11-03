@@ -10,8 +10,7 @@ namespace MVC2.Models
     {
         [Required]
         public string Name { get; set; }
-        [Required]
-        public string City { get; set; }
+        public City City { get; set; }
         [Required]
         public int Phone { get; set; }
         [Key]

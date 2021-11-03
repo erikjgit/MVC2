@@ -9,7 +9,8 @@ namespace MVC2.Models.ViewModel
     {
         public List<Person> PersonList { get; set; }
         public string Name { get; set; }
-        public string City { get; set; }
+        public City City { get; set; }
         public int Phone { get; set; }
+        public string FilterText { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace MVC2.Models.Repo
 {
     public interface IPeopleRepo
     {
-        Person Create(string name, string city, int phone);
+        Person Create(string name, City city, int phone);
         List<Person> Read();
         Person Read(int id);
         Person Update(Person person);

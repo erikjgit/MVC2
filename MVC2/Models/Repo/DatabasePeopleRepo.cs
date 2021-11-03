@@ -13,7 +13,7 @@ namespace MVC2.Models.Repo
         {
             _dbContext = dbContext;
         }
-        public Person Create(string name, string city, int phone)
+        public Person Create(string name, City city, int phone)
         {
             
             Person p = new Person();

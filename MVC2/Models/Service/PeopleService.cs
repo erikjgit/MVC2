@@ -38,7 +38,19 @@ namespace MVC2.Models.Service
 
         public PeopleViewModel FindBy(PeopleViewModel search)
         {
-            throw new NotImplementedException();
+            PeopleViewModel result = new PeopleViewModel();
+            foreach(Person p in people.Read())
+            {
+                if (p.Name.Equals(search.FilterText))
+                {
+                    result.PersonList.Add(p);
+                }
+                else if (p.City.Name.Equals(search.FilterText))
+                {
+                    result.PersonList.Add(p);
+                }
+            }
+            return result;
         }
 
         public Person FindBy(int id)
