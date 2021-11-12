@@ -12,8 +12,12 @@
 <form asp-action="Create">
     <label asp-for="Name">Name</label>
     <input asp-for="Name" />
-    <label asp-for="City">City</label>
-    <input asp-for="City" />
+    <select asp-for="CityId">
+        @foreach (var item in Model.Cities)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
     <label asp-for="Phone">Phone nr.</label>
     <input asp-for="Phone" />
     <button type="submit">Create new person</button>
@@ -32,17 +36,26 @@
         <tr>
             <th>Name</th>
             <th>City</th>
+            <th>Languages</th>
             <th>Phone nr.</th>
             <th>Id</th>
+            <th> </th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.PersonList)
         {
             <tr>
-                <partial name="_personPartial" model="item" />
+                <td>
+                    <partial name="_personPartial" model="item" /> 
+                </td>
+                <td>
+                    <form asp-action="Edit" method="get" asp-route-id="@item.Id">
+                        <button type="submit">Edit Languages</button>
+                    </form>
+                </td>
             </tr>
-            
+
         }
     </tbody>
 </table>

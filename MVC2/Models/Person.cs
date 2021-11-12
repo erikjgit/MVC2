@@ -15,6 +15,7 @@ namespace MVC2.Models
         public int Phone { get; set; }
         [Key]
         public int Id { get; set; }
+        public List<PersonLanguage> PersonLanguages { get; set; }
 
         //public Person(string name, string city, int phone)
         //{

@@ -11,5 +11,9 @@ namespace MVC2.Models
         public string Name { get; set; }
         public List<Person> People { get; set; }
         public Country Country { get; set; }
+        public City()
+        {
+            People = new List<Person>();
+        }
     }
 }

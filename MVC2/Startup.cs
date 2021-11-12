@@ -35,6 +35,10 @@ namespace MVC2
             services.AddScoped<ICountryRepo, DatabaseCountryRepo>();
             services.AddScoped<ICityService, CityService>();
             services.AddScoped<ICityRepo, DatabaseCityRepo>();
+            services.AddScoped<ILanguageRepo, DatabaseLanguageRepo>();
+            services.AddScoped<ILanguageService, LanguageService>();
+            services.AddScoped<IPersonLanguageService, PersonLanguageService>();
+            services.AddScoped<IPersonLanguageRepo, PersonLanguageRepo>();
             services.AddDbContext<PeopleDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("PeopleDb")));
 

@@ -4,14 +4,16 @@ using MVC2.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace MVC2.Migrations
 {
     [DbContext(typeof(PeopleDbContext))]
-    partial class PeopleDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211109101719_added languages")]
+    partial class addedlanguages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -105,7 +107,7 @@ namespace MVC2.Migrations
 
                     b.HasIndex("LanguageId");
 
-                    b.ToTable("PersonLanguages");
+                    b.ToTable("PersonLanguage");
                 });
 
             modelBuilder.Entity("MVC2.Models.City", b =>

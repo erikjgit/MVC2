@@ -12,7 +12,6 @@ namespace MVC2.Models.Service
         CountryViewModel All();
         Country FindBy(int id);
         bool Remove(int id);
-        bool AddCity(Country country, City city);
 
     }
 }

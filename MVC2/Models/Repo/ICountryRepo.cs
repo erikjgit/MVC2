@@ -11,7 +11,7 @@ namespace MVC2.Models.Repo
         List<Country> Read();
         bool Delete(Country country);
         Country Read(int id);
-        bool AddCity(Country country, City city);
+        //bool AddCity(Country country, City city);
 
     }
 }

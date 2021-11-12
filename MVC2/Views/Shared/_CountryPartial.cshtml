@@ -2,5 +2,11 @@
 
 <div class="row">
     <div class="col">@Model.Name</div>
+    <select>
+        @foreach (var item in Model.Cities)
+        {
+            <option>@item.Name</option>
+        }
+    </select>
     <div class="col">@Model.Id</div>
 </div>

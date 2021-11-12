@@ -19,10 +19,6 @@ namespace MVC2.Models.Service
             return (countries.Create(countryViewModel.Name));
         }
 
-        public bool AddCity(Country country, City city)
-        {
-            return (countries.AddCity(country, city));
-        }
 
         public CountryViewModel All()
         {

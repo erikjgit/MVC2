@@ -3,5 +3,11 @@
 <div class="row">
     <div class="col">@Model.Name</div>
     <div class="col">@Model.Country</div>
+    <select>
+        @foreach (var item in Model.People)
+        {
+            <option>@item.Name</option>
+        }
+    </select>
     <div class="col">@Model.Id</div>
 </div>

@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace MVC2.Models.Service
 {
-    public interface ICityService
+    public interface ILanguageService
     {
-        City Add(CityViewModel cityViewModel);
-        CityViewModel All();
-        City FindBy(int id);
+        Language Add(LanguageViewModel languageViewModel);
+        LanguageViewModel All();
+        Language FindBy(int id);
         bool Remove(int id);
-        public List<City> FindBy(Country country);
+
     }
 }

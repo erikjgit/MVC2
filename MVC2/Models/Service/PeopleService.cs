@@ -64,5 +64,18 @@ namespace MVC2.Models.Service
         {
             return(people.Delete(people.Read(id)));
         }
+        public List<Person> FindBy(City city)
+        {
+            IEnumerable<Person> personQuery =
+                from person in people.Read()
+                where person.City.Id == city.Id
+                select person;
+            if (personQuery == null)
+            {
+                return (new List<Person>());
+            }
+            return (personQuery.ToList());
+
+        }
     }
 }

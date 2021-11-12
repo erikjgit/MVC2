@@ -3,30 +3,28 @@
 *@
 @{
 }
+@model MVC2.Models.ViewModel.LanguageViewModel
 
-@model MVC2.Models.ViewModel.CountryViewModel
-
-<form asp-action="Create">
+<form asp-action="Index" method="post">
     <label asp-for="Name">Name</label>
     <input asp-for="Name" />
-    <button type="submit">Create new country</button>
+    <button type="submit">Create new language</button>
 </form>
-
 
 
 <table class="table">
     <thead>
         <tr>
             <th>Name</th>
-            <th>Cities</th>
             <th>Id</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model.Countries)
+        @foreach (var item in Model.LanguageList)
         {
             <tr>
-                <partial name="_countryPartial" model="item" />
+                <td>@item.Name</td>
+                <td>@item.Id</td>
             </tr>
 
         }

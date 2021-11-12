@@ -38,5 +38,18 @@ namespace MVC2.Models.Service
         {
             return (cities.Delete(cities.Read(id)));
         }
+        public List<City> FindBy(Country country)
+        {
+            IEnumerable<City> cityQuery =
+                from city in cities.Read()
+                where city.Country.Id == country.Id
+                select city;
+            if(cityQuery == null)
+            {
+                return (new List<City>());
+            }
+            return( cityQuery.ToList());
+            
+        }
     }
 }

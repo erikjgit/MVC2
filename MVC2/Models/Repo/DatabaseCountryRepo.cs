@@ -13,16 +13,16 @@ namespace MVC2.Models.Repo
         {
             _dbContext = dbContext;
         }
-        public bool AddCity(Country country, City city)
-        {
-            if (_dbContext.Countries.Find(country.Id).Cities.Contains(city))
-            {
-                return false;
-            }
-            _dbContext.Countries.Find(country.Id).Cities.Add(city);
-            _dbContext.SaveChanges();
-            return true;
-        }
+        //public bool AddCity(Country country, City city)
+        //{
+        //    if (_dbContext.Countries.Find(country.Id).Cities.Contains(city))
+        //    {
+        //        return false;
+        //    }
+        //    _dbContext.Countries.Find(country.Id).Cities.Add(city);
+        //    _dbContext.SaveChanges();
+        //    return true;
+        //}
 
         public Country Create(string name)
         {

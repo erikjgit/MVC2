@@ -13,10 +13,12 @@ namespace MVC2.Controllers
     {
         ICityService _cityService;
         ICountryService _countryService;
-        public CitiesController(ICityService cityService, ICountryService countryService)
+        IPeopleService _peopleService;
+        public CitiesController(ICityService cityService, ICountryService countryService, IPeopleService peopleService)
         {
             _cityService = cityService;
             _countryService = countryService;
+            _peopleService = peopleService;
         }
         [HttpGet]
         public IActionResult Index()
@@ -24,6 +26,10 @@ namespace MVC2.Controllers
             CityViewModel vm = new CityViewModel();
             vm = _cityService.All();
             vm.Countries = _countryService.All().Countries;
+            foreach(City c in vm.Cities)
+            {
+                c.People = _peopleService.FindBy(c);
+            }
             return View(vm);
         }
         [HttpPost]
@@ -33,7 +39,6 @@ namespace MVC2.Controllers
             City c;
             newVm.Country = _countryService.FindBy(cityViewModel.CountryId);
             c = _cityService.Add(newVm);
-            _countryService.AddCity(newVm.Country, c);
             return RedirectToAction("Index", cityViewModel);
         }
     }

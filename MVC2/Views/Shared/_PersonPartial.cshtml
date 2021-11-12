@@ -2,7 +2,13 @@
 
 <div class="row">
     <div class="col">@Model.Name</div>
-    <div class="col">@Model.City</div>
+    <div class="col">@Model.City.Name</div>
+    <select>
+        @foreach (var item in Model.PersonLanguages)
+        {
+            <option>@item.Language.Name</option>
+        }
+    </select>
     <div class="col">@Model.Phone</div>
     <div class="col">@Model.Id</div>
 </div>

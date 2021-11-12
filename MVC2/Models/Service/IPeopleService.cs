@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MVC2.Models.Repo
+namespace MVC2.Models.Service
 {
     public interface IPeopleService
     {
@@ -12,6 +12,7 @@ namespace MVC2.Models.Repo
         PeopleViewModel All();
         PeopleViewModel FindBy(PeopleViewModel search);
         Person FindBy(int id);
+        public List<Person> FindBy(City city);
         Person Edit(int id, Person person);
         bool Remove(int id);
     }
