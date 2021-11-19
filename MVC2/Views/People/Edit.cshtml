@@ -28,43 +28,4 @@
     </select>
     <button type="submit">Add Language</button>
 </form>
-        @*<table class="table">
 
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Id</th>
-                    <th>Current languages</th>
-                    <th>Remove</th>
-                    <th>Languages to add</th>
-                    <th>Add</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>@Model.Person.Name</td>
-                    <td>@Model.Person.Id</td>
-                    <td>
-                        <select asp-for="RemoveId">
-                            @foreach (var item in Model.Person.PersonLanguages)
-                            {
-                                <option value="@item.LanguageId">@item.Language.Name</option>
-                            }
-                        </select>
-                    </td>
-                    <td>
-
-                    </td>
-                    <td>
-                        <select asp-for="AddId">
-                            @foreach (var item in Model.NotSpokenLaguages)
-                            {
-                                <option value="@item.Id">@item.Name</option>
-                            }
-                        </select>
-                    </td>
-                </tr>
-
-
-            </tbody>
-        </table>*@
