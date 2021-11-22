@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using MVC2.Models;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace MVC2.Database
 {
-    public class PeopleDbContext : DbContext
+    public class PeopleDbContext : IdentityDbContext
     {
         public PeopleDbContext(DbContextOptions<PeopleDbContext> options) : base(options)
         {
