@@ -1,8 +1,15 @@
 ﻿
 @model List<Person>
 
-
-<div class="col">
+<div class="row">
+    <div class="col">Name</div>
+    <div class="col">City</div>
+    <div class="col">Languages</div>
+    <div class="col">Phone nr.</div>
+    <div class="col">Id</div>
+    <div class="col">Edit</div>
+</div>
+<div>
     @foreach (var p in Model)
     {
         <partial name="_personPartial" model="p" />

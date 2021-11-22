@@ -45,6 +45,15 @@ namespace MVC2.Controllers
         public IActionResult Index(PeopleViewModel vm)
         {
             vm = _peopleService.FindBy(vm);
+            foreach (Person p in vm.PersonList)
+            {
+                p.PersonLanguages = _personLanguageService.FindBy(p);
+                foreach (PersonLanguage pl in p.PersonLanguages)
+                {
+                    pl.Language = _languageService.FindBy(pl.LanguageId);
+                }
+            }
+            vm.Cities = _cityService.All().Cities;
             return View(vm);
         }
         [HttpPost]

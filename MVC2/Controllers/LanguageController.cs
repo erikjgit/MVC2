@@ -25,7 +25,6 @@ namespace MVC2.Controllers
         [HttpPost]
         public IActionResult Create(LanguageViewModel vm)
         {
-            //LanguageViewModel result = vm;
             vm.LanguageList.Add( _languageService.Add(vm));
             return RedirectToAction("Index", vm);
         }

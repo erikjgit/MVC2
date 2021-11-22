@@ -31,31 +31,5 @@
     <button type="submit">Reset</button>
 </form>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>City</th>
-            <th>Languages</th>
-            <th>Phone nr.</th>
-            <th>Id</th>
-            <th> </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.PersonList)
-        {
-            <tr>
-                <td>
-                    <partial name="_personPartial" model="item" /> 
-                </td>
-                <td>
-                    <form asp-action="Edit" method="get" asp-route-id="@item.Id">
-                        <button type="submit">Edit Languages</button>
-                    </form>
-                </td>
-            </tr>
+<partial name="_peopleListPartialView" model="@Model.PersonList" />
 
-        }
-    </tbody>
-</table>
