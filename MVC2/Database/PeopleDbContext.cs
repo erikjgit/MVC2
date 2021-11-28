@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using MVC2.Models;
 using System;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MVC2.Database
 {
-    public class PeopleDbContext : IdentityDbContext
+    public class PeopleDbContext : IdentityDbContext<ApplicationUser>
     {
         public PeopleDbContext(DbContextOptions<PeopleDbContext> options) : base(options)
         {
@@ -17,6 +18,7 @@ namespace MVC2.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<PersonLanguage>().HasKey(pl => new { pl.PersonId, pl.LanguageId });
         }
         public DbSet<Person> People { get; set;}
@@ -24,5 +26,6 @@ namespace MVC2.Database
         public DbSet<Country> Countries { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<PersonLanguage> PersonLanguages { get; set; }
+        public DbSet<ApplicationUser> Users { get; set; }
     }
 }

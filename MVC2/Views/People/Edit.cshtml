@@ -28,4 +28,14 @@
     </select>
     <button type="submit">Add Language</button>
 </form>
-
+@*<h3>Change city</h3>
+<form asp-action="ChangeCity">
+    <input type="hidden" asp-for="PersonId" value="@Model.PersonId" />
+    <select asp-for="CityId">
+        @foreach (var item in Model.Cities)
+        {
+            <option value="@item.Id">@item.Name</option>
+        }
+    </select>
+    <button type="submit">Set city</button>
+</form>*@

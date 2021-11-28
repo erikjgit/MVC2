@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MVC2.Models;
 using MVC2.Models.Repo;
 using MVC2.Models.Service;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace MVC2.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class AjaxController : Controller
     {
         IPeopleRepo _inMemoryPeopleRepo;

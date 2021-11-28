@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MVC2.Models;
 using MVC2.Models.Service;
 using MVC2.Models.ViewModel;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace MVC2.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CountriesController : Controller
     {
         ICountryService _countryService;

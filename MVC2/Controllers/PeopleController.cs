@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MVC2.Models;
 using MVC2.Models.Repo;
 using MVC2.Models.Service;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace MVC2.Controllers
 {
+    [Authorize]
     public class PeopleController : Controller
     {
 
@@ -66,6 +68,7 @@ namespace MVC2.Controllers
             _peopleService.Add(createPersonViewModel);
             return RedirectToAction("Index", peopleViewModel);
         }
+        [Authorize(Roles ="Admin")]
         [HttpGet]
         public IActionResult Edit(int id)
         {
@@ -75,6 +78,8 @@ namespace MVC2.Controllers
             vm.Person.PersonLanguages = _personLanguageService.FindBy(vm.Person);
             List<Language> ns = _languageService.All().LanguageList;
             vm.NotSpokenLaguages = ns;
+            //vm.Cities = _cityService.All().Cities;
+            //vm.Cities.Remove(vm.Person.City);
             foreach (PersonLanguage pl in vm.Person.PersonLanguages)
             {
                 pl.Language = _languageService.FindBy(pl.LanguageId);
@@ -82,6 +87,7 @@ namespace MVC2.Controllers
             }
             return View(vm);
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult AddLanguage(EditPersonViewModel vm)
         {            
@@ -94,6 +100,7 @@ namespace MVC2.Controllers
             vm.Person.PersonLanguages.Add(_personLanguageService.Add(vm.Person, _languageService.FindBy(vm.AddId)));
             return RedirectToAction("Edit", new { id = vm.Person.Id });
         }
+        [Authorize(Roles = "Admin")]
         [HttpPost] public IActionResult RemoveLanguage(EditPersonViewModel vm)
         {
             vm.Person = _peopleService.FindBy(vm.PersonId);
@@ -105,7 +112,13 @@ namespace MVC2.Controllers
             _personLanguageService.Remove(_peopleService.FindBy(vm.Person.Id), _languageService.FindBy(vm.RemoveId));
             return RedirectToAction("Edit", new { id = vm.Person.Id });
         }
-
+        //[HttpPost]
+        //public IActionResult ChangeCity(EditPersonViewModel vm)
+        //{
+        //    vm.Person = _peopleService.FindBy(vm.PersonId);
+        //    vm.Person.City = _cityService.FindBy(vm.CityId); ;
+        //    return RedirectToAction("Edit", new { id = vm.Person.Id });
+        //}
 
     }
 }

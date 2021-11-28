@@ -7,7 +7,10 @@
     <div class="col">Languages</div>
     <div class="col">Phone nr.</div>
     <div class="col">Id</div>
-    <div class="col">Edit</div>
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="col">Edit</div>
+    }
 </div>
 <div>
     @foreach (var p in Model)

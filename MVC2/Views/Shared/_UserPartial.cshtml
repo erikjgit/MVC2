@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model MVC2.Models.ViewModel.UserViewModel
+
+<div class="row">
+    <div class="col">@Model.ApplicationUser.UserName</div>
+    <div class="col">@Model.ApplicationUser.FirstName @Model.ApplicationUser.LastName</div>
+    <div class="col">@Model.Role</div>
+    @if (!(Model.IsCurrentUser))
+    {
+        <div class="col">
+            <form asp-action="ChangeRole">
+                <input type="hidden" asp-for="UserId" value="@Model.UserId" />
+                <input type="hidden" asp-for="Role" value="@Model.Role" />
+                <select asp-for="NewRole">
+                    @foreach (var item in Model.Roles)
+                    {
+                        <option value="@item.Name">@item.Name</option>
+                    }
+                </select>
+                <button type="submit">Set new role</button>
+            </form>
+        </div>
+    }
+    @if (Model.IsCurrentUser)
+            {
+                <div class="col"></div>
+            }
+</div>

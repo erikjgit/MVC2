@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MVC2.Models;
 using MVC2.Models.Service;
 using MVC2.Models.ViewModel;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace MVC2.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class CitiesController : Controller
     {
         ICityService _cityService;
@@ -41,5 +43,6 @@ namespace MVC2.Controllers
             c = _cityService.Add(newVm);
             return RedirectToAction("Index", cityViewModel);
         }
+
     }
 }

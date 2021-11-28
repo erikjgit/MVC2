@@ -16,5 +16,7 @@ namespace MVC2.Models.ViewModel
         public List<Language> NotSpokenLaguages { get; set; } 
         public int AddId { get; set; }
         public int RemoveId { get; set; }
+        //public List<City> Cities { get; set; }
+        //public int CityId { get; set; }
     }
 }

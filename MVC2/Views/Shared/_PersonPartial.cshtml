@@ -11,7 +11,12 @@
     </select>
     <div class="col">@Model.Phone</div>
     <div class="col">@Model.Id</div>
-    <div class="col"><form asp-action="Edit" method="get" asp-route-id="@Model.Id">
-    <button type="submit">Edit Languages</button>
-</form></div>
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="col">
+            <form asp-action="Edit" method="get" asp-route-id="@Model.Id">
+                <button type="submit">Edit Languages</button>
+            </form>
+        </div>
+    }
 </div>
