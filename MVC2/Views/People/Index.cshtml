@@ -31,5 +31,21 @@
     <button type="submit">Reset</button>
 </form>
 
-<partial name="_peopleListPartialView" model="@Model.PersonList" />
+<div class="row">
+    <div class="col">Name</div>
+    <div class="col">City</div>
+    <div class="col">Languages</div>
+    <div class="col">Phone nr.</div>
+    <div class="col">Id</div>
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="col">Edit</div>
+    }
+</div>
+<div>
+    @foreach (var p in Model.PersonList)
+    {
+        <partial name="_personPartial" model="p" />
+    }
+</div>
 
